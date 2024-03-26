@@ -25,5 +25,8 @@ Puis lancer la commande suivante : node server.js
 Dans un autre invité de commande Powershell en mode administrateur, positionner vous dans le dossier "frontend" 
 
 Puis lancer la commande suivante : npm start 
+Dans l'invité de commande Powershell en mode administrateur, positionner vous dans le dossier "backend" et lancer la commande : "npm install" puis "node server.js"
+
+Dans l'invité de commande Powershell en mode administrateur, positionner vous dans le dossier "frontend" et lancer la commande : "npm install" puis "npm start"
 
 Enfin dans votre navigateur saisissez l'url suivant : http://localhost:4200/ 

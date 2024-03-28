@@ -1,4 +1,4 @@
-# Hot-Sauce 
+# Construire une API securisée pour une application d'avis gastronomiques
 
 # NodeJs 
 

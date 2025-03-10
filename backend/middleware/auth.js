@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken') //to use jwt module for unique token
 module.exports = (req, res, next) => {
     try {
         const token = req.headers.authorization.split(' ')[1]
-        const decodedToken = jwt.verify(token, 'Random_token')
+        const decodedToken = jwt.verify(token, 'Random_token', { algorithms: ['HS256'] });
         const userId = decodedToken.userId
         req.auth = { userId: userId }
         if (req.body.userId && req.body.userId !== userId) {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { catchError, EMPTY, switchMap, tap } from 'rxjs';
@@ -11,11 +11,11 @@ import { catchError, EMPTY, switchMap, tap } from 'rxjs';
 })
 export class SignupComponent implements OnInit {
 
-  signupForm!: FormGroup;
+  signupForm!: UntypedFormGroup;
   loading!: boolean;
   errorMsg!: string;
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
               private auth: AuthService,
               private router: Router) { }
 
@@ -31,10 +31,9 @@ export class SignupComponent implements OnInit {
     const email = this.signupForm.get('email')!.value;
     const password = this.signupForm.get('password')!.value;
     this.auth.createUser(email, password).pipe(
-      switchMap(() => this.auth.loginUser(email, password)),
       tap(() => {
         this.loading = false;
-        this.router.navigate(['/sauces']);
+        this.router.navigate(['/login']);
       }),
       catchError(error => {
         this.loading = false;
